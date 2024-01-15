@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,10 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'compressor',
+    # 'compressor',
+
     'mail',
     'accounts',
     'users',
+    # 'encrypted_fields',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -123,27 +125,41 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+STATIC_ROOT = BASE_DIR / 'collected_static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-COMPRESS_ROOT = BASE_DIR / 'static'
-
-COMPRESS_ENABLED = True
-
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+# COMPRESS_ROOT = BASE_DIR / 'static'
+#
+# COMPRESS_ENABLED = True
+#
+# STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 AUTH_USER_MODEL = 'users.User'
 
-ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignupForm'}
+ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignUpForm'}
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-# LOGIN_REDIRECT_URL = 'shop:product_list'
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+LOGIN_REDIRECT_URL = 'mail:inbox'
+ACCOUNT_EMAIL_VERIFICATION = None
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 SITE_ID = 1
+
+# Email Configuration
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.googlemail.com'
+# EMAIL_PORT = 587  # Use 587 for TLS or 465 for SSL
+# EMAIL_USE_TLS = True  # Set to False if using SSL
+# EMAIL_USE_SSL = False  # Set to True if using SSL
+# EMAIL_HOST_USER = 'markoise669@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your_email_password'
+
+
+ALLOWED_DOMAINS = ['yourwebsite.com']

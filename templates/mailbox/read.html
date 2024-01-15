@@ -11,6 +11,8 @@
     <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
         <main>
             <div class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+
+
                 <div class="flex items-center divide-x divide-gray-100 dark:divide-gray-700 justify-between sm:justify-start">
                     <div class="pr-3">
                         <a href=""
@@ -62,7 +64,7 @@
                         </a>
                     </div>
                     <div class="pl-3 text-sm font-medium text-gray-500">
-                        Today, 08:34 AM
+                        {{ email.timestamp }}
                     </div>
                 </div>
                 <div class="hidden pl-0 space-x-2 divide-x divide-gray-100 sm:flex sm:px-2 dark:divide-gray-700">
@@ -114,29 +116,201 @@
                     </div>
                     <div class="ml-4">
                         <div class="text-base font-semibold text-gray-900 truncate dark:text-white">
-                            Bonnie Green
+                            {{ email.sender.full_name }}
                         </div>
                         <div class="text-sm text-gray-500 text-normal dark:text-gray-400">
-                            email@flowbite.com
+                            {{ email.sender }}
                         </div>
                     </div>
                 </div>
-                <h1 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Website Hosting Reviews Free The
-                    Best Resource For Hosting Comparison</h1>
+                <h1 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">{{ email.subject }}
+                </h1>
                 <div class="space-y-2">
-                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">Do you know what could beat
-                        the exciting feeling of having a new computer? Make your own PC easy and compatible!</p>
-                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">So insisted received is
-                        occasion advanced honoured. Among ready to which up. Attacks smiling and may out assured
-                        moments man nothing outward. Thrown any behind afford either the set depend one temper.
-                        Instrument melancholy in acceptance collecting frequently be if. Zealously now pronounce
-                        existence add you instantly say offending. Merry their far had widen was. Concerns no in
-                        expenses raillery formerly.</p>
-                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-                        Best Regards,<br>
-                        Bonnie Green, CEO Themesberg LLC
-                    </p>
+                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">{{ email.body }}</p>
+                    <!--                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">So insisted received is-->
+                    <!--                        occasion advanced honoured. Among ready to which up. Attacks smiling and may out assured-->
+                    <!--                        moments man nothing outward. Thrown any behind afford either the set depend one temper.-->
+                    <!--                        Instrument melancholy in acceptance collecting frequently be if. Zealously now pronounce-->
+                    <!--                        existence add you instantly say offending. Merry their far had widen was. Concerns no in-->
+                    <!--                        expenses raillery formerly.</p>-->
+                    <!--                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">-->
+                    <!--                        Best Regards,<br>-->
+                    <!--                        Bonnie Green, CEO Themesberg LLC-->
+                    <!--                    </p>-->
                 </div>
+                <div class="space-y-2 mt-4">
+
+                    <div class="flex items-start gap-2.5">
+                        <div class="flex flex-col gap-2.5">
+
+                            <div class="leading-1.5 flex w-full max-w-[320px] flex-col">
+                                <div class="flex items-start bg-gray-50 dark:bg-gray-700 rounded-xl p-2">
+                                    <div class="me-2">
+               <span class="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white pb-2">
+                  <svg fill="none" aria-hidden="true" class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 21">
+                     <g clip-path="url(#clip0_3173_1381)">
+                        <path fill="#E2E5E7"
+                              d="M5.024.5c-.688 0-1.25.563-1.25 1.25v17.5c0 .688.562 1.25 1.25 1.25h12.5c.687 0 1.25-.563 1.25-1.25V5.5l-5-5h-8.75z"/>
+                        <path fill="#B0B7BD" d="M15.024 5.5h3.75l-5-5v3.75c0 .688.562 1.25 1.25 1.25z"/>
+                        <path fill="#CAD1D8" d="M18.774 9.25l-3.75-3.75h3.75v3.75z"/>
+                        <path fill="#F15642"
+                              d="M16.274 16.75a.627.627 0 01-.625.625H1.899a.627.627 0 01-.625-.625V10.5c0-.344.281-.625.625-.625h13.75c.344 0 .625.281.625.625v6.25z"/>
+                        <path fill="#fff"
+                              d="M3.998 12.342c0-.165.13-.345.34-.345h1.154c.65 0 1.235.435 1.235 1.269 0 .79-.585 1.23-1.235 1.23h-.834v.66c0 .22-.14.344-.32.344a.337.337 0 01-.34-.344v-2.814zm.66.284v1.245h.834c.335 0 .6-.295.6-.605 0-.35-.265-.64-.6-.64h-.834zM7.706 15.5c-.165 0-.345-.09-.345-.31v-2.838c0-.18.18-.31.345-.31H8.85c2.284 0 2.234 3.458.045 3.458h-1.19zm.315-2.848v2.239h.83c1.349 0 1.409-2.24 0-2.24h-.83zM11.894 13.486h1.274c.18 0 .36.18.36.355 0 .165-.18.3-.36.3h-1.274v1.049c0 .175-.124.31-.3.31-.22 0-.354-.135-.354-.31v-2.839c0-.18.135-.31.355-.31h1.754c.22 0 .35.13.35.31 0 .16-.13.34-.35.34h-1.455v.795z"/>
+                        <path fill="#CAD1D8"
+                              d="M15.649 17.375H3.774V18h11.875a.627.627 0 00.625-.625v-.625a.627.627 0 01-.625.625z"/>
+                     </g>
+                     <defs>
+                        <clipPath id="clip0_3173_1381">
+                           <path fill="#fff" d="M0 0h20v20H0z" transform="translate(0 .5)"/>
+                        </clipPath>
+                     </defs>
+                  </svg>
+                  Flowbite Terms & Conditions
+               </span>
+                                        <span class="flex text-xs font-normal text-gray-500 dark:text-gray-400 gap-2">
+                  12 Pages
+                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="self-center" width="3" height="4"
+                       viewBox="0 0 3 4" fill="none">
+                     <circle cx="1.5" cy="2" r="1.5" fill="#6B7280"/>
+                  </svg>
+                  18 MB
+                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="self-center" width="3" height="4"
+                       viewBox="0 0 3 4" fill="none">
+                     <circle cx="1.5" cy="2" r="1.5" fill="#6B7280"/>
+                  </svg>
+                  PDF
+               </span>
+                                    </div>
+                                    <div class="inline-flex self-center items-center">
+                                        <button class="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                                                type="button">
+                                            <svg class="w-4 h-4 text-gray-900 dark:text-white" aria-hidden="true"
+                                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                 viewBox="0 0 20 20">
+                                                <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/>
+                                                <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="space-y-2 mt-4">
+
+                    <div class="flex items-start gap-2.5">
+
+                        <div class="flex flex-col w-full max-w-[320px] leading-1.5">
+                            <a href="#"
+                               class="bg-gray-50 dark:bg-gray-600 rounded-xl p-4 mb-2 hover:bg-gray-200 dark:hover:bg-gray-500">
+                                <img src="https://flowbite.com/docs/images/og-image.png" class="rounded-lg mb-2"/>
+                                <span class="text-sm font-medium text-gray-900 dark:text-white mb-2">GitHub - themesberg/flowbite: The most popular and open source libra ...</span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400 font-normal">github.com</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="space-y-2 mt-4">
+
+
+                    <div class="flex items-start gap-2.5">
+                        <div class="flex flex-col gap-2.5">
+
+                            <div class="leading-1.5 flex w-full max-w-[320px] flex-col">
+                                <div class="grid gap-4 grid-cols-2 mt-2">
+                                    <div class="group relative">
+                                        <div class="absolute w-full h-full bg-gray-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                                            <button data-tooltip-target="download-image-1"
+                                                    class="inline-flex items-center justify-center rounded-full h-8 w-8 bg-white/30 hover:bg-white/50 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50">
+                                                <svg class="w-4 h-4 text-white" aria-hidden="true"
+                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="2"
+                                                          d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                                                </svg>
+                                            </button>
+                                            <div id="download-image-1" role="tooltip"
+                                                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                Download image
+                                                <div class="tooltip-arrow" data-popper-arrow></div>
+                                            </div>
+                                        </div>
+                                        <img src="/docs/images/blog/image-1.jpg" class="rounded-lg"/>
+                                    </div>
+                                    <div class="group relative">
+                                        <div class="absolute w-full h-full bg-gray-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                                            <button data-tooltip-target="download-image-2"
+                                                    class="inline-flex items-center justify-center rounded-full h-8 w-8 bg-white/30 hover:bg-white/50 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50">
+                                                <svg class="w-4 h-4 text-white" aria-hidden="true"
+                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="2"
+                                                          d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                                                </svg>
+                                            </button>
+                                            <div id="download-image-2" role="tooltip"
+                                                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                Download image
+                                                <div class="tooltip-arrow" data-popper-arrow></div>
+                                            </div>
+                                        </div>
+                                        <img src="/docs/images/blog/image-2.jpg" class="rounded-lg"/>
+                                    </div>
+                                    <div class="group relative">
+                                        <div class="absolute w-full h-full bg-gray-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                                            <button data-tooltip-target="download-image-3"
+                                                    class="inline-flex items-center justify-center rounded-full h-8 w-8 bg-white/30 hover:bg-white/50 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50">
+                                                <svg class="w-4 h-4 text-white" aria-hidden="true"
+                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="2"
+                                                          d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                                                </svg>
+                                            </button>
+                                            <div id="download-image-3" role="tooltip"
+                                                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                Download image
+                                                <div class="tooltip-arrow" data-popper-arrow></div>
+                                            </div>
+                                        </div>
+                                        <img src="/docs/images/blog/image-3.jpg" class="rounded-lg"/>
+                                    </div>
+                                    <div class="group relative">
+                                        <button class="absolute w-full h-full bg-gray-900/90 hover:bg-gray-900/50 transition-all duration-300 rounded-lg flex items-center justify-center">
+                                            <span class="text-xl font-medium text-white">+7</span>
+                                            <div id="download-image" role="tooltip"
+                                                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                Download image
+                                                <div class="tooltip-arrow" data-popper-arrow></div>
+                                            </div>
+                                        </button>
+                                        <img src="/docs/images/blog/image-1.jpg" class="rounded-lg"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Delivered</span>
+                                <button class="text-sm text-blue-700 dark:text-blue-500 font-medium inline-flex items-center hover:underline">
+                                    <svg class="w-3 h-3 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                         fill="none" viewBox="0 0 16 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="2"
+                                              d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                                    </svg>
+                                    Save all
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
 
             <div id="function-buttons"
@@ -207,71 +381,7 @@
                     </div>
                 </div>
             </div>
-            <form id="reply" action="#"
-                  class="bottom-0 right-0 w-full p-4 bg-white border-t border-gray-200 lg:fixed lg:pl-64 dark:bg-gray-800 dark:border-gray-700">
-                <div class="mb-3 lg:pl-4">
-                    <div class="mb-4">
-                        <input type="text" name="message-to" id="message-to"
-                               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                               value="email@flowbite.com" placeholder="To" required>
-                    </div>
-                    <div>
-                        <label for="reply-mail" class="sr-only">Your message</label>
-                        <textarea autofocus id="reply-mail" rows="6"
-                                  class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                  placeholder="Write text here ..." required></textarea>
-                    </div>
-                </div>
-                <div class="items-center sm:flex sm:divide-x sm:divide-gray-100 lg:pl-4 dark:divide-gray-700">
-                    <div class="mb-3 space-y-3 sm:flex sm:space-y-0 sm:mb-0">
-                        <button type="submit"
-                                class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center w-full sm:w-auto mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                            <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
-                            </svg>
-                            Send
-                        </button>
-                    </div>
-                    <div class="flex pl-0 space-x-1 sm:pl-2">
-                        <a href="#"
-                           class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z"
-                                      clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                           class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                      d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                      clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                           class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                           class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                      d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
-                                      clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </form>
+
 
         </main>
         <footer class="p-4 my-6 mx-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 xl:p-8 dark:bg-gray-800">
