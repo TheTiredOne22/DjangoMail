@@ -4,6 +4,7 @@ from .models import Email
 from .forms import EmailComposeForm
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.db import transaction
 
 
 # Create your views here.
