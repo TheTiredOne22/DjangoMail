@@ -1,14 +1,27 @@
-from .models import Email
-from django.forms import ModelForm
+from django import forms
+from django.core.exceptions import ValidationError
+
+from users.models import User
+from .models import Email, Reply
 
 
-class EmailComposeForm(ModelForm):
+class EmailComposeForm(forms.ModelForm):
+    recipient = forms.EmailField()
+
     class Meta:
         model = Email
-        fields = ['recipients', 'subject', 'body']
+        fields = ['recipient', 'subject', 'body']
+
+    def clean_recipient(self):
+        email = self.cleaned_data.get('recipient')
+        try:
+            user = User.objects.get(email__iexact=email)
+        except User.DoesNotExist:
+            raise ValidationError("User with this email does not exist.")
+        return user
 
 
-class EmailReplyForm(ModelForm):
+class EmailReplyForm(forms.ModelForm):
     class Meta:
-        model = Email
+        model = Reply
         fields = ['body']

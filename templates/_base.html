@@ -14,7 +14,6 @@
     <script type="module" src="{% static 'js/tiptap.js' %}"></script>
     <script src="{% static 'js/htmx.min.js' %}"></script>
 
-
     <script>
 
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -27,6 +26,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+  event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+})
 
 
 

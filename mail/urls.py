@@ -1,16 +1,33 @@
 from django.urls import path
-from . import views
+
+from .views import inbox, sent, archive, starred, toggle_archive_email, read_email, trash, \
+    delete_email, \
+    bulk_delete, compose_email, \
+    delete_reply, toggle_starred_email, bulk_archive
 
 app_name = 'mail'
 
 urlpatterns = [
-    path('', views.inbox, name='inbox'),
-    path('sent/', views.sent, name='sent'),
-    path('drafts/', views.draft, name='drafts'),
-    path('archive/', views.archive, name='archive'),
-    path('read/<slug:slug>/', views.read_email, name='read'),
-    path('compose/', views.compose_email, name='compose'),
-    # path('read/', views.read, name='read'),
-    # path('reply/', views.reply, name='reply')
+    # Mailbox views
+    path('', inbox, name='inbox'),
+    path('compose/', compose_email, name='compose'),
+    path('sent/', sent, name='sent'),
+    path('starred/', starred, name='starred'),
+    path('archive/', archive, name='archive'),
+    path('read/<slug:slug>/', read_email, name='read'),
+    path('trash/', trash, name='trash'),
 
+    # Delete reply
+    path('delete-reply/<int:reply_id>/', delete_reply, name='delete_reply'),
+
+    # Delete emails
+    path('delete/<slug:slug>/', delete_email, name='delete_email'),
+    path('bulk-delete/', bulk_delete, name='bulk_delete'),
+
+    # Archive emails
+    path('archive-email/<slug:slug>/', toggle_archive_email, name='archive_email'),
+    path('bulk-archive/', bulk_archive, name='bulk_archive'),
+
+    # Utility views
+    path('star-emails/<slug:slug>/', toggle_starred_email, name='star_email')
 ]
