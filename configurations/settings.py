@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
 from pathlib import Path
+
+import dj_database_url
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-i)n79jxw!_)x#bf^8e7q(^%spicmxxf2t$vd!_tkdl2)9$yb=&'
-ENCRYPTION_KEY = b'lxO1jfuVYWYURG89RSs6HanlLcx-x9EEEKqjif5Djzo='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -170,4 +173,10 @@ SITE_ID = 1
 # EMAIL_HOST_PASSWORD = 'your_email_password'
 
 
-ALLOWED_DOMAINS = ['yourwebsite.com']
+DATABASES = {
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
