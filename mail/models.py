@@ -1,15 +1,12 @@
 import uuid
 
-from cryptography.fernet import Fernet
-from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
 from users.models import User
 
+
 # Create your models here.
-key = settings.ENCRYPTION_KEY
-cipher_suite = Fernet(key)
 
 
 class Email(models.Model):

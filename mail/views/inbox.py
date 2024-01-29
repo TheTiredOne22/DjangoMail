@@ -16,6 +16,7 @@ def inbox(request):
                                   is_deleted_by_recipient=False).select_related(
         'sender').prefetch_related('replies').order_by(
         '-timestamp')
+
     # Retrieve search query from GET parameters
     search_query = request.GET.get('q')
 
@@ -31,6 +32,6 @@ def inbox(request):
     inbox_mail = paginator.get_page(page_number)
 
     if request.htmx:
-        return render(request, 'mailbox/partials/search-results.html', {'inbox_mail': inbox_mail})
+        return render(request, 'mailbox/partials/search/inbox-search-results.html', {'inbox_mail': inbox_mail})
     else:
         return render(request, 'mailbox/index.html', {'inbox_mail': inbox_mail})

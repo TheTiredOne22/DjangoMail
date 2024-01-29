@@ -5,4 +5,4 @@ from .inbox import inbox
 from .read_email import read_email, delete_reply
 from .sent import sent
 from .starred import starred, toggle_starred_email
-from .trash import trash, delete_email, bulk_delete
+from .trash import trash, delete_email, bulk_delete, permanent_bulk_delete, permanently_delete_email

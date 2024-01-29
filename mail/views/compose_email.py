@@ -1,7 +1,11 @@
+from cryptography.fernet import Fernet
+from django.conf import settings
 from django.shortcuts import render, redirect
 
 from mail.forms import EmailComposeForm
 from mail.models import Email
+
+f = Fernet(settings.ENCRYPTION_KEY)
 
 
 def compose_email(request):

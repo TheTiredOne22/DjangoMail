@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
@@ -29,11 +30,21 @@ def archive(request):
     # Retrieve search query from GET parameters
     search_query = request.GET.get('q')
 
-    # Apply search filters if a query is present
-    archived_emails = filter_emails(emails, search_query)
+    if search_query:
+        archived_emails = filter_emails(emails, search_query)
+    else:
+        archived_emails = emails
 
-    # Render the archive page with the retrieved emails
-    return render(request, 'mailbox/archive.html', {'archived_emails': archived_emails})
+    paginator = Paginator(archived_emails, 10)  # Show 10 emails per page
+    page_number = request.GET.get('page')
+    archived_emails = paginator.get_page(page_number)
+
+    if request.htmx:
+        return render(request, 'mailbox/partials/search/archive-search-results.html',
+                      {'archived_emails': archived_emails})
+    else:
+        # Render the archive page with the retrieved emails
+        return render(request, 'mailbox/archive.html', {'archived_emails': archived_emails})
 
 
 def toggle_archive_email(request, slug):
@@ -80,5 +91,5 @@ def bulk_archive(request):
         for email in emails:
             email.toggle_archive()
 
-    # Redirect to the inbox after bulk archiving selected emails
-    return HttpResponse()
+    # Redirect to the archive after bulk archiving selected emails
+    return redirect('mail:archive')
