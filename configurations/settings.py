@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from pathlib import Path
 
+import dj_database_url
 import environ
 
 # Initialise environment variables
@@ -42,15 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'compressor',
-
     'mail',
     'accounts',
     'users',
     'notifications',
     'django_htmx',
-
-    # 'encrypted_fields',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -99,12 +96,12 @@ WSGI_APPLICATION = 'configurations.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -175,6 +172,6 @@ SITE_ID = 1
 # EMAIL_HOST_PASSWORD = 'your_email_password'
 
 #
-# DATABASES = {
-#     "default": dj_database_url.parse(env('DATABASE_URL'))
-# }
+DATABASES = {
+    "default": dj_database_url.parse(env('DATABASE_URL'))
+}
