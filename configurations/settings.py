@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from pathlib import Path
 
-import dj_database_url
 import environ
 
 # Initialise environment variables
@@ -175,7 +174,7 @@ SITE_ID = 1
 # EMAIL_HOST_USER = 'markoise669@gmail.com'
 # EMAIL_HOST_PASSWORD = 'your_email_password'
 
-
-DATABASES = {
-    "default": dj_database_url.parse(env('DATABASE_URL'))
-}
+#
+# DATABASES = {
+#     "default": dj_database_url.parse(env('DATABASE_URL'))
+# }
