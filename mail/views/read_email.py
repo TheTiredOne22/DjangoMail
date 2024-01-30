@@ -4,7 +4,6 @@ from django.shortcuts import get_object_or_404, render, redirect
 
 from mail.forms import EmailReplyForm
 from mail.models import Email, Reply
-from notifications.models import Notification
 
 
 @login_required()
@@ -26,20 +25,20 @@ def read_email(request, slug):
     if request.user == email.recipient:
         email.mark_as_read()
 
-        notification = Notification.objects.filter(user=request.user, related_email=email).first()
-        if notification:
-            notification.mark_as_read()
-
-        # Mark reply notifications as read when a user opens a reply
-    unread_reply_notifications = Notification.objects.filter(
-        user=request.user,
-        notification_type=Notification.NotificationType.REPLY,
-        related_email=email,
-        is_read=False
-    )
-
-    for notification in unread_reply_notifications:
-        notification.mark_as_read()
+    #     notification = Notification.objects.filter(user=request.user, related_email=email).first()
+    #     if notification:
+    #         notification.mark_as_read()
+    #
+    #     # Mark reply notifications as read when a user opens a reply
+    # unread_reply_notifications = Notification.objects.filter(
+    #     user=request.user,
+    #     notification_type=Notification.NotificationType.REPLY,
+    #     related_email=email,
+    #     is_read=False
+    # )
+    #
+    # for notification in unread_reply_notifications:
+    #     notification.mark_as_read()
 
     # Retrieve replies and order them by timestamp
     replies = Reply.get_replies(email)

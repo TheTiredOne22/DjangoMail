@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'mail',
     'accounts',
     'users',
-    'notifications',
+    # 'notifications',
     'django_htmx',
     'allauth',
     'allauth.account',
